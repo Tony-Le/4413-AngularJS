@@ -1,0 +1,30 @@
+<h1>Prime Number Finder</h1>
+<a href="Dash.do">Dashboard</a>
+<form #primeForm (submit)="doPrime(primeForm);">
+  <fieldset>
+    <div class="row">
+      <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-right"></i></span><input type="text"
+                name="min" placeholder="Larger than ... " class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-left"></i></span><input #max type="text"
+                name="max" placeholder="But not larger than ..." class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <input value="Find" name="calc" class="btn btn-lg btn-primary btn-block" type="submit" />
+        </div>
+        <div class="text-center">
+          <div>{{result}}</div>
+        </div>
+        <div class="text-center" style="color: red;">{{error}}</div>
+      </div>
+    </div>
+  </fieldset>
+</form>
+<button (click)="doPrimeNext(max)">Next</button>

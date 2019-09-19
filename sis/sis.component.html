@@ -1,0 +1,54 @@
+<h1>Sis Report Generator</h1>
+<a href="Dash.do">Dashboard</a>
+<form id="sisForm" #sisForm (submit)="doSis(sisForm)">
+	<fieldset>
+		<div class="row">
+			<div class="center-block">
+				<img alt="" src="/44F18_ProjD/res/Sis.png?sz=120" class="profile-img" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-10 col-md-offset-1">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span><input type="text" id="prefix"
+						 placeholder="Name prefix ..." class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-step-forward"></i></span><input type="text" id="minGpa"
+						 placeholder="Minimum GPA" class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<select id="sortBy" name="sortBy"><option selected="any" value="NONE">Select One:</option>
+							<option value="Last Name">Last Name</option>
+							<option value="Major">Major</option>
+							<option value="Number of Courses">Number of Courses</option>
+							<option value="GPA">GPA</option></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<input value="Generate Report" name="calc" class="btn btn-lg btn-primary btn-block" type="submit" />
+				</div>
+				<div id="sortedBy" class="text-center"></div>
+				<div id="sisResult">
+					<table border="1" >
+						<tr *ngFor="let x of result; let i = index">
+							<td>{{x.name}}</td>
+							<td>{{x.major}}</td>
+							<td>{{x.courses}}</td>
+							<td>{{x.gpa | number : '1.1-1'}}</td>
+						</tr>
+					</table>
+				</div>
+				<div id="sisError" class="text-center" style="color: red;">{{error}}</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-12"></div>
+		</div>
+	</fieldset>
+</form>
